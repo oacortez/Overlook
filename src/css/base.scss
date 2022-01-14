@@ -3,4 +3,60 @@
 
 body {
   background: $primary-background;
+  margin: 0;
+  font-family: 'DM Serif Display', serif;
+}
+
+.nav-bar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  background-color: #0D1A4B;
+  position: fixed;
+  top: 0;
+  height: 12vh;
+  margin: 0;
+  z-index: 9999;
+}
+
+.nav-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1%;
+  width: 50%;
+}
+
+.nav-btn {
+  cursor: pointer;
+  width: 8vw;
+  margin: 0 1% 0 1%;
+  // font-family: inherit;
+  border: none;
+  border-radius: 5px;
+  background-color: #3D5BA9;
+}
+
+.home-button-contrainer {
+  display: flex;
+  /* margin: 1%; */
+  /* flex-direction: row; */
+  width: 50%;
+  left: 10px;
+  top: 2px;
+  color: #FFFFFF;
+  margin: 0px;
+  align-items: center;
+}
+
+h1 {
+  font-size: 42px;
+  margin: 2%;
+}
+
+.home-btn {
+  margin: 1%;
+  font-size: 40px;
 }
