@@ -7,6 +7,10 @@ body {
   font-family: 'DM Serif Display', serif;
 }
 
+h2 {
+  text-align: center;
+}
+
 .nav-bar {
   width: 100%;
   display: flex;
@@ -54,6 +58,15 @@ body {
 h1 {
   font-size: 42px;
   margin: 2%;
+}
+
+.home-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 15vh;
 }
 
 .home-btn {
