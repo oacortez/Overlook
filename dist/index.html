@@ -4,20 +4,25 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Hotel Express</title>
 </head>
 <body>
   <nav class="nav-bar">
-    <h1 tabindex="0" class="title" id="title">Hotel Express</h1>
-    <i class="fa fa-hotel "></i>
+    <section class="home-button-contrainer">
+      <h1 tabindex="0" class="title" id="title">Hotel Express</h1>
+      <i class="fa fa-hotel home-btn"></i>
+    </section>
     <section class="nav-button-container">
       <button class="nav-btn" id="myProfileBtn">My Profile</button>
       <button class="nav-btn" id="signOutBtn">Sign-Out</button>
-      <select name="tags" class="nav-btn" id="tags"></select>
-  </section>
+    </section>
   </nav>
-  
+  <!-- <select name="tags" class="nav-btn" id="tags"></select> -->
+
   <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
 
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
