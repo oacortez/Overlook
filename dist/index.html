@@ -21,6 +21,19 @@
       <button class="nav-btn" id="signOutBtn">Sign-Out</button>
     </section>
   </nav>
+  <main>
+    <section class="home-view" id="homeView">
+    <h2 class="welcome-message" id="welcome-message">Welcome User, Your total amount spent on rooms: $1,200</h2>
+    <section class="inputs-container">
+      <!-- <p class="select-date-message">Select trip date: </p> -->
+      <label for="dateCalander">Start date:</label>
+      <input type="date" id="dateCalander" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">
+      <label for="filterRoomType">Filter by room type:</label>
+      <select name="filterRoomType" class="filter-by-room" id="filterRoom"></select>
+    </section>
+    <button class="submit-request-btn" id="submitRequestBtn">Submit Request</button>
+    </section>
+  </main>
   <!-- <select name="tags" class="nav-btn" id="tags"></select> -->
 
   <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
