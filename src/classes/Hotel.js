@@ -1,8 +1,23 @@
 class Hotel {
   constructor(customersData, bookingsData, roomsData) {
     this.customer = customersData;
-    this.rooms = roomsData;
     this.bookings = bookingsData;
+    this.rooms = roomsData;
+    this.avaiableRooms = [];
+  }
+
+  filterRoomByDate(dateInput) {
+    const roomNumbers = this.bookings.reduce((roomNum, booking) => {
+      if(booking.date.includes(dateInput)) {
+        roomNum.push(booking.roomNumber);
+      }
+      return roomNum;
+    }, []);
+    
+    const openRooms = this.rooms.filter(room => roomNumbers.includes(room.number));
+    this.avaiableRooms = openRooms;
+    // console.log(avaiableRooms)
+    return this.avaiableRooms;
   }
 }
 
