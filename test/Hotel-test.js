@@ -23,14 +23,22 @@ describe('Hotel', () => {
   });
 
   it('Should have customers', () => {
-    expect(hotel.customer).to.equal(customersData)
+    expect(hotel.customer).to.deep.equal(customersData)
   });
 
   it('Should have a list of rooms', () => {
-    expect(hotel.rooms).to.equal(roomsData);
+    expect(hotel.rooms).to.deep.equal(roomsData);
   });
 
   it('Should have a list of bookings', () => {
-    expect(hotel.bookings).to.equal(bookingsData);
+    expect(hotel.bookings).to.deep.equal(bookingsData);
+  });
+
+  it('Should start off as no available rooms', () => {
+    expect(hotel.avaiableRooms).to.deep.equal([]);
+  });
+
+  it('Should filter all available rooms by a given date', () => {
+    expect(hotel.filterRoomByDate('2020/04/22')).to.deep.equal([roomsData[0]]);
   });
 });
