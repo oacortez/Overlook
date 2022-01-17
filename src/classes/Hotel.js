@@ -1,5 +1,15 @@
 class Hotel {
-  constructor(//WHAT WOULD GO HERE ?? WHAT TYPE OF DATA WOULD BE PASSED HERE?) {
+  constructor(customersData, bookingsData, roomsData) {
+    this.customer = customersData;
+    this.rooms = roomsData;
+    this.bookings = bookingsData;
+  }
+}
+
+export default Hotel;
+
+//WHAT WOULD GO HERE ?? WHAT TYPE OF DATA WOULD BE PASSED HERE?
+
   // WHAT PROPERTIES WOULD THIS HAVE ?
   // WOULD THIS INCLUDE ROOM AND BOOKING PROPERTIES ?
   // WOULD THIS TIE TO MY CUSTOMER CLASS ? 
@@ -10,6 +20,3 @@ class Hotel {
   // HOW WOULD ALL THESE CLASS TIE ? 
 
   // KINDA CONFUSED WHATS THE PURPOSE TO USE CLASSES.
-
-  }
-}
