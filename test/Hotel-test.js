@@ -60,6 +60,6 @@ describe('Hotel', () => {
   it('Should get total spent on rooms', () => {
     hotel.getAllUserBookings(customersData[0]);
     hotel.getTotalPrice()
-    expect(hotel.currentCustomer.totalSpent).to.equal(358.4);
+    expect(hotel.currentCustomer.totalSpent).to.equal('358.40');
   });
 });
