@@ -41,4 +41,25 @@ describe('Hotel', () => {
   it('Should filter all available rooms by a given date', () => {
     expect(hotel.filterRoomByDate('2020/04/22')).to.deep.equal([roomsData[0]]);
   });
+
+  it('Should be able to filter available rooms by room type', () => {
+    hotel.filterRoomByDate('2020/04/22');
+    
+    expect(hotel.filterByRoomType('residential suite')).to.deep.equal([roomsData[0]]);
+  });
+
+  it('Should have currentCustomer', () => {
+    expect(hotel.currentCustomer).to.equal(null);
+  });
+
+  it('Should get all customer bookings', () => {
+    hotel.getAllUserBookings(customersData[0]);
+    expect(hotel.currentCustomer.bookings.length).to.equal(1);
+  });
+
+  it('Should get total spent on rooms', () => {
+    hotel.getAllUserBookings(customersData[0]);
+    hotel.getTotalPrice()
+    expect(hotel.currentCustomer.totalSpent).to.equal(358.4);
+  });
 });
