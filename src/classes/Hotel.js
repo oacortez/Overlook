@@ -46,7 +46,7 @@ class Hotel {
         }
       });
      return total;
-    }, 0);
+    }, 0).toFixed(2);
     return this.currentCustomer;
   }
 }
