@@ -2,9 +2,9 @@ const fetchData = (api) =>
   fetch(`http://localhost:3001/api/v1/${api}`)
   .then(response => response.json())
 
-  const customersData = fetchData('customers');
-  const roomsData = fetchData('rooms');
-  const bookingsData = fetchData('bookings');
+  const customersData = () => fetchData('customers');
+  const roomsData = () => fetchData('rooms');
+  const bookingsData = () => fetchData('bookings');
 
   const userData = (id) => {
     return fetchData(`customers/${id}`);
