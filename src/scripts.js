@@ -2,6 +2,7 @@ import {customersData, roomsData, bookingsData, userData, postData} from './api-
 import './css/base.scss';
 import Hotel from './classes/Hotel';
 import domUpdates from './domUpdates';
+import image from './images/hotel-room.png';
 
 // Query Selectors:
 const title = document.getElementById('title');
@@ -24,6 +25,7 @@ const getAllData = (userID) => {
     hotel.getAllUserBookings(data[3])
     hotel.getTotalPrice()
     loadCustomerInfo()
+    // console.log(hotel.currentCustomer.bookings);
   })
 }
 
@@ -37,6 +39,7 @@ window.addEventListener('load', () => {
 
 const loadCustomerInfo = () => {
   domUpdates.displayWelcomeMessage(hotel.currentCustomer.name, hotel.currentCustomer.totalSpent);
+  domUpdates.displayAllUsersBookings(hotel.currentCustomer.bookings, image);
 }
 
 

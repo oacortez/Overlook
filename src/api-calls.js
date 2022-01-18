@@ -39,7 +39,7 @@ return fetch(`http://localhost:3001/api/v1/users`, {
   body: JSON.stringify(data),
 })
   .then(response => {
-    myErrorHandlingFunc(response)
+    return myErrorHandlingFunc(response)
   })
 }
 //Insdie script.js👇🏼
