@@ -28,4 +28,12 @@ describe('Customer', () => {
   it('Should have a id', () => {
     expect(customer1.id).to.equal(customersData[0].id);
   });
+
+  it('Should start no bookings', () => {
+    expect(customer1.bookings).to.be.an('array');
+  });
+
+  it('Should start with a zero value', () => {
+    expect(customer1.totalSpent).to.equal(0);
+  });
 });
