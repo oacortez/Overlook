@@ -10,6 +10,22 @@ const domUpdates = {
     welcomeMessage.innerText = `Welcome ${customer}, Your total amount spent on rooms: $${totalSpent}`;
   },
 
+  displayAllUsersBookings(currentCustomerBookings, image) {
+    const profileView = document.getElementById('profileView');
+    profileView.innerHTML = '';
+    console.log(currentCustomerBookings);
+    currentCustomerBookings.forEach(booking => {
+      profileView.innerHTML += `
+      <article class="customerCard">
+      <img src=${image} alt="Beautiful scenery of a room with a mountain view behind the windows">
+      <h3>Booking Details</h3>
+      <p>Trip Date: ${booking.date}</p>
+      <p>Room Number: ${booking.roomNumber}</p>
+      </article>
+      `
+    })
+  },
+
 }
 
 export default domUpdates;
