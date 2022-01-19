@@ -6,7 +6,6 @@ import image from './images/hotel-room.png';
 
 // Query Selectors:
 const homeView = document.querySelector('#homeView');
-// const profileView = document.querySelector('#profileView');
 const availableRoomsView = document.querySelector('#availableRoomsView');
 const title = document.querySelector('#title');
 const roomTypeTags = document.querySelector('#filterRoom');
@@ -20,6 +19,7 @@ const signOutBtn = document.getElementById('signOutBtn');
 const submitRequestBtn = document.querySelector('#submitRequestBtn');
 
 let hotel; 
+let calendarDate;
 
 const getAllData = (userID) => {
   Promise.all([customersData(), roomsData(), bookingsData(), userData(userID)])
@@ -38,19 +38,42 @@ const getAllData = (userID) => {
 
 // Functions: 
 
+const bookRoom = event => {
+  let data = { 
+    userID: parseInt(hotel.currentCustomer.id),
+    date: calendarDate,
+    roomNumber: parseInt(event.target.value)
+  }
+  postData(data)
+    .then(data => {
+      getAllData(hotel.currentCustomer.id)
+    })
+}
+
+const createBtns = () => {
+  const cardBtns = document.querySelectorAll('.cardBtns'); 
+  cardBtns.forEach(button => {
+    button.addEventListener('click', event => {
+      console.log("I been clicked");
+      bookRoom(event)
+    })
+  });
+}
+
 const loadCustomerInfo = () => {
   domUpdates.displayWelcomeMessage(hotel.currentCustomer.name, hotel.currentCustomer.totalSpent, homeView);
-
 }
 
 const loadProfileBookings = () => {
-  domUpdates.displayAllUsersBookings(hotel.currentCustomer.bookings, image, homeView, profileView);
+  domUpdates.displayAllUsersBookings(hotel.currentCustomer.bookings, image, homeView, profileView, availableRoomsView);
 }
 
 const filterRooms = () => {
+  calendarDate = calendar.value.split('-').join('/');
   hotel.filterRoomByDate(calendar.value.split('-').join('/'));
   hotel.filterByRoomType(roomTypeTags.value);
   domUpdates.displayAllAvailableRooms(hotel.roomsByTag, availableRoomsView, homeView);
+  createBtns();
 }
 
 window.addEventListener('load', () => {
@@ -61,3 +84,4 @@ submitRequestBtn.addEventListener('click', filterRooms);
 
 
 export default hotel;
+export {bookRoom};
