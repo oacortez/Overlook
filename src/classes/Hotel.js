@@ -6,6 +6,7 @@ class Hotel {
     this.bookings = bookingsData;
     this.rooms = roomsData;
     this.avaiableRooms = [];
+    this.roomsByTag = [];
     this.currentCustomer = null;
   }
 
@@ -22,11 +23,12 @@ class Hotel {
     return this.avaiableRooms;
   }
 
-  filterByRoomType(roomType) {
-    if(roomType === 'all rooms') {
-      return this.avaiableRooms;
-    }
-    return this.avaiableRooms.filter(room => room.roomType === roomType);
+  filterByRoomType(tag) {
+    this.avaiableRooms.filter(room => {
+      if(room.roomType === tag) {
+        this.roomsByTag.push(room);
+      }
+    })
   }
 
   getAllUserBookings(customer) {
