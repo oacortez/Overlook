@@ -35,17 +35,22 @@ describe('Hotel', () => {
   });
 
   it('Should start off as no available rooms', () => {
-    expect(hotel.avaiableRooms).to.deep.equal([]);
+    expect(hotel.availableRooms).to.deep.equal([]);
   });
 
   it('Should filter all available rooms by a given date', () => {
     expect(hotel.filterRoomByDate('2020/04/22')).to.deep.equal([roomsData[0]]);
   });
 
+  it('Should start with no rooms with tags', () => {
+    expect(hotel.roomsByTag).to.deep.equal([]);
+  });
+
   it('Should be able to filter available rooms by room type', () => {
     hotel.filterRoomByDate('2020/04/22');
+    hotel.filterByRoomType('residential suite');
     
-    expect(hotel.filterByRoomType('residential suite')).to.deep.equal([roomsData[0]]);
+    expect(hotel.roomsByTag).to.deep.equal([roomsData[0]]);
   });
 
   it('Should have currentCustomer', () => {
@@ -60,6 +65,13 @@ describe('Hotel', () => {
   it('Should get total spent on rooms', () => {
     hotel.getAllUserBookings(customersData[0]);
     hotel.getTotalPrice()
-    expect(hotel.currentCustomer.totalSpent).to.equal(358.4);
+    expect(hotel.currentCustomer.totalSpent).to.equal('358.40');
+  });
+
+  it('Should be able to book a room', () => {
+    hotel.getAllUserBookings(customersData[0]);
+    hotel.addBooking(roomsData[4]);
+    expect(hotel.currentCustomer.bookings.length).to.equal(2);
+    expect(hotel.bookings.length).to.equal(4);  
   });
 });
