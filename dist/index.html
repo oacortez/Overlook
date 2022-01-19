@@ -22,28 +22,23 @@
     </section>
   </nav>
   <main>
-    <section class="home-view" id="homeView">
+    <section class="home-view hidden" id="homeView">
     <h2 class="welcome-message" id="welcomeMessage">Welcome User, Your total amount spent on rooms: $1,200</h2>
     <section class="inputs-container">
       <label for="dateCalander">Start date:</label>
-      <input type="date" id="dateCalander" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">
+      <input type="date" id="dateCalander" name="trip-start" value="2022-07-22" min="2022-01-20" max="2022-12-31">
       <label for="filterRoomType">Filter by room type:</label>
-      <select name="filterRoomType" class="filter-by-room" id="filterRoom"></select>
+      <select name="filterRoomType" class="filter-by-room" id="filterRoom">
+        <option value="suite">Suite</option>
+        <option value="residential suite">Residential Suite</option>
+        <option value="junior suite">Junior suite</option>
+        <option value="single room">Single Room</option>
+      </select>
     </section>
     <button class="submit-request-btn" id="submitRequestBtn">Submit Request</button>
     </section>
-    <section class="profile-view" id="profileView">
-    </section>
-    <section class="available-room-view">
-      <article class="available-room-card">
-        <h3>Room Details</h3>
-        <p>Room Type:</p>
-        <p>Bed Size:</p>
-        <p>Bidet:</p>
-        <p>Room Number:</p>
-        <p>Cost Per Night:</p>
-      </article>
-    </section>
+    <section class="profile-view hidden" id="profileView"></section>
+    <section class="available-room-view hidden" id="availableRoomsView"></section>
   </main>
   <!-- <select name="tags" class="nav-btn" id="tags"></select> -->
 
