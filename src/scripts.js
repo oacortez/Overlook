@@ -10,6 +10,8 @@ const availableRoomsView = document.querySelector('#availableRoomsView');
 const title = document.querySelector('#title');
 const roomTypeTags = document.querySelector('#filterRoom');
 const calendar = document.querySelector('#dateCalander');
+const userNameInput = document.querySelector('#userNameInput');
+const passwordInput = document.querySelector('#passwordInput');
 
 
 // Buttons || icons:
@@ -17,6 +19,7 @@ const homeBtn = document.querySelector('.home-btn');
 const myProfileBtn = document.getElementById('myProfileBtn');
 const signOutBtn = document.getElementById('signOutBtn');
 const submitRequestBtn = document.querySelector('#submitRequestBtn');
+const loginBtn = document.querySelector('#loginButton');
 
 let hotel; 
 let calendarDate;
@@ -28,7 +31,6 @@ const getAllData = (userID) => {
     hotel.getAllUserBookings(data[3])
     hotel.getTotalPrice()
     loadCustomerInfo()
-    // console.log(hotel.currentCustomer.bookings);
   })
 }
 
@@ -76,11 +78,23 @@ const filterRooms = () => {
   createBtns();
 }
 
-window.addEventListener('load', () => {
-  getAllData(1)
-});
+const findUserId = () => {
+  return parseInt(userNameInput.value.substring(8));
+}
+
+const findUserPassword = (event) => {
+  event.preventDefault()
+  if(passwordInput.value === "overlook2021" && findUserId() < 51) {
+    getAllData(findUserId());
+  } else {
+    domUpdates.displayLoginerror();
+  }
+}
+
+loginBtn.addEventListener('click', findUserPassword);
 myProfileBtn.addEventListener('click', loadProfileBookings);
 submitRequestBtn.addEventListener('click', filterRooms);
+
 
 
 export default hotel;
