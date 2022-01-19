@@ -5,6 +5,8 @@ import {bookRoom} from './scripts';
 const availableRoomsView = document.querySelector('#availableRoomsView');
 const profileView = document.querySelector('#profileView');
 const welcomeMessage = document.querySelector('#welcomeMessage');
+const errorLoginMessage = document.querySelector('#errorLoginMessage');
+const loginForm = document.querySelector('#loginForm');
 
 
 const show = elements => elements.forEach(element => element.classList.remove('hidden'));
@@ -15,6 +17,11 @@ const domUpdates = {
   displayWelcomeMessage(customer, totalSpent, homeView) {
     welcomeMessage.innerText = `Welcome ${customer}, Your total amount spent on rooms: $${totalSpent}`;
     show([homeView])
+    hide([loginForm, errorLoginMessage])
+  },
+
+  displayLoginerror() {
+    show([errorLoginMessage])
   },
 
   displayAllUsersBookings(currentCustomerBookings, image, homeView, profileView, availableRoomsView) {
