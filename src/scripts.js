@@ -5,16 +5,19 @@ import domUpdates from './domUpdates';
 import image from './images/hotel-room.png';
 
 // Query Selectors:
-const title = document.getElementById('title');
-const roomTypeTags = document.getElementById('filterRoom');
-const calendar = document.getElementById('dateCalander');
+const homeView = document.querySelector('#homeView');
+// const profileView = document.querySelector('#profileView');
+const availableRoomsView = document.querySelector('#availableRoomsView');
+const title = document.querySelector('#title');
+const roomTypeTags = document.querySelector('#filterRoom');
+const calendar = document.querySelector('#dateCalander');
 
 
 // Buttons || icons:
 const homeBtn = document.querySelector('.home-btn');
 const myProfileBtn = document.getElementById('myProfileBtn');
 const signOutBtn = document.getElementById('signOutBtn');
-const submitRequestBtn = document.getElementById('submitRequestBtn');
+const submitRequestBtn = document.querySelector('#submitRequestBtn');
 
 let hotel; 
 
@@ -30,18 +33,31 @@ const getAllData = (userID) => {
 }
 
 // Event Listeners:
-window.addEventListener('load', () => {
-  getAllData(1)
-});
+
 
 
 // Functions: 
 
 const loadCustomerInfo = () => {
-  domUpdates.displayWelcomeMessage(hotel.currentCustomer.name, hotel.currentCustomer.totalSpent);
-  domUpdates.displayAllUsersBookings(hotel.currentCustomer.bookings, image);
+  domUpdates.displayWelcomeMessage(hotel.currentCustomer.name, hotel.currentCustomer.totalSpent, homeView);
+
 }
 
+const loadProfileBookings = () => {
+  domUpdates.displayAllUsersBookings(hotel.currentCustomer.bookings, image, homeView, profileView);
+}
+
+const filterRooms = () => {
+  hotel.filterRoomByDate(calendar.value.split('-').join('/'));
+  hotel.filterByRoomType(roomTypeTags.value);
+  domUpdates.displayAllAvailableRooms(hotel.roomsByTag, availableRoomsView, homeView);
+}
+
+window.addEventListener('load', () => {
+  getAllData(1)
+});
+myProfileBtn.addEventListener('click', loadProfileBookings);
+submitRequestBtn.addEventListener('click', filterRooms);
 
 
 export default hotel;
