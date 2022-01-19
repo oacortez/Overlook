@@ -1,6 +1,6 @@
 /* This is an example of how to import a partial scss file*/
 @import '_variables';
-// @import '_reset';
+@import '_reset';
 
 body {
   background: $primary-background;
@@ -72,6 +72,7 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-content: space-around;
   align-items: center;
   position: relative;
   margin-top: 15vh;
@@ -127,6 +128,11 @@ img {
   height: 27vh;
   margin-bottom: 15vh;
   border: solid 2px black;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
 }
 
 .hidden {
