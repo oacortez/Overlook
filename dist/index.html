@@ -11,7 +11,7 @@
   <title>Hotel Express</title>
 </head>
 <body>
-  <nav class="nav-bar">
+  <nav class="nav-bar hidden">
     <section class="home-button-contrainer">
       <button class="home-btn" id="home-btn">Hotel Express</button>
       <i class="fa fa-hotel hotel-icon"></i>
@@ -22,6 +22,13 @@
     </section>
   </nav>
   <main>
+    <form class="login-form">
+      <label for="user-name-input"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="user-name" required id="user-name-input"><br>
+      <label for="password-input"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required id="password-input"><br>
+      <button type="submit" id="login-button">Login</button>
+    </form>
     <section class="home-view hidden" id="homeView">
     <h2 class="welcome-message" id="welcomeMessage">Welcome User, Your total amount spent on rooms: $1,200</h2>
     <section class="inputs-container">
