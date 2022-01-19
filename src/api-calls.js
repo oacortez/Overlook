@@ -17,15 +17,17 @@ const fetchData = (api) =>
       headers: {
         'Content-Type': 'application/json'
       }
+    })
       .then(response => {
         if(!response.ok){
           console.log(response.json())
-          throw "response"
+          throw new Error('Sorry something went wrong')
+        } else {
+          return response.json()
         }
-        return response.json()
         // need to create a function for err handling
-      })
-    })
+      }
+    )
   }
 
   /**
@@ -58,4 +60,4 @@ document.querySelector(".myHtmlElement").innerText += error
 }
    */
   
-  export {customersData, roomsData, bookingsData, userData, postData}
+export {customersData, roomsData, bookingsData, userData, postData}
