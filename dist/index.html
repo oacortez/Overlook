@@ -11,24 +11,24 @@
   <title>Hotel Express</title>
 </head>
 <body>
-  <nav class="nav-bar hidden">
+  <nav class="nav-bar">
     <section class="home-button-contrainer">
       <button class="home-btn" id="home-btn">Hotel Express</button>
       <i class="fa fa-hotel hotel-icon"></i>
     </section>
     <section class="nav-button-container">
       <button class="nav-btn" id="myProfileBtn">My Profile</button>
-      <button class="nav-btn" id="signOutBtn">Sign-Out</button>
     </section>
   </nav>
   <main>
-    <form class="login-form">
-      <label for="user-name-input"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="user-name" required id="user-name-input"><br>
-      <label for="password-input"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="password" required id="password-input"><br>
-      <button type="submit" id="login-button">Login</button>
+    <form class="login-form" id="loginForm">
+      <label for="userNameInput"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="user-name" required id="userNameInput"><br>
+      <label for="passwordInput"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required id="passwordInput"><br>
+      <button type="submit" id="loginButton">Login</button>
     </form>
+    <p class="error-login-message hidden" id="errorLoginMessage">Sorry incorrect user-name and password please try again!</p>
     <section class="home-view hidden" id="homeView">
     <h2 class="welcome-message" id="welcomeMessage">Welcome User, Your total amount spent on rooms: $1,200</h2>
     <section class="inputs-container">
