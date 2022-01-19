@@ -13,8 +13,8 @@
 <body>
   <nav class="nav-bar">
     <section class="home-button-contrainer">
-      <h1 tabindex="0" class="title" id="title">Hotel Express</h1>
-      <i class="fa fa-hotel home-btn"></i>
+      <button class="home-btn" id="home-btn">Hotel Express</button>
+      <i class="fa fa-hotel hotel-icon"></i>
     </section>
     <section class="nav-button-container">
       <button class="nav-btn" id="myProfileBtn">My Profile</button>
@@ -27,8 +27,8 @@
     <section class="inputs-container">
       <label for="dateCalander">Start date:</label>
       <input type="date" id="dateCalander" name="trip-start" value="2022-07-22" min="2022-01-20" max="2022-12-31">
-      <label for="filterRoomType">Filter by room type:</label>
-      <select name="filterRoomType" class="filter-by-room" id="filterRoom">
+      <label for="filterRoom">Filter by room type:</label>
+      <select name="filterRoom" class="filter-by-room" id="filterRoom">
         <option value="suite">Suite</option>
         <option value="residential suite">Residential Suite</option>
         <option value="junior suite">Junior suite</option>
@@ -40,12 +40,6 @@
     <section class="profile-view hidden" id="profileView"></section>
     <section class="available-room-view hidden" id="availableRoomsView"></section>
   </main>
-  <!-- <select name="tags" class="nav-btn" id="tags"></select> -->
-
-  <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
-
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
-
 </body>
 </html>
