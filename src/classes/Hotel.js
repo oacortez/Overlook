@@ -1,30 +1,31 @@
 import Customer from './Customer';
+import Booking from './Bookings';
 
 class Hotel {
   constructor(customersData, bookingsData, roomsData) {
     this.customer = customersData;
     this.bookings = bookingsData;
     this.rooms = roomsData;
-    this.avaiableRooms = [];
+    this.availableRooms = [];
     this.roomsByTag = [];
     this.currentCustomer = null;
   }
 
   filterRoomByDate(dateInput) {
     const roomNumbers = this.bookings.reduce((roomNum, booking) => {
-      if(booking.date.includes(dateInput)) {
+      if(booking.date === dateInput) {
         roomNum.push(booking.roomNumber);
       }
       return roomNum;
     }, []);
     
     const openRooms = this.rooms.filter(room => roomNumbers.includes(room.number));
-    this.avaiableRooms = openRooms;
-    return this.avaiableRooms;
+    this.availableRooms = openRooms;
+    return this.availableRooms;
   }
 
   filterByRoomType(tag) {
-    this.avaiableRooms.filter(room => {
+    this.availableRooms.filter(room => {
       if(room.roomType === tag) {
         this.roomsByTag.push(room);
       }
@@ -50,6 +51,13 @@ class Hotel {
      return total;
     }, 0).toFixed(2);
     return this.currentCustomer;
+  }
+
+  addBooking(room) {
+    let booking = new Booking(room);
+    this.bookings.push(booking);
+    this.currentCustomer.bookings.push(booking);
+    this.getTotalPrice();
   }
 }
 
