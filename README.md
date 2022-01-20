@@ -13,18 +13,18 @@
   - [Project Specs](#project-specs)
 
 ## Abstract
-	This project is a hotel engine site where customers can manage their room bookings and are able to book rooms based on the date or room type they select. Users are also able to see their overall spendings they have based on past, present, and future bookings.
+This project is a hotel engine site where customers can manage their room bookings and are able to book rooms based on the date or room type they select. Users are also able to see their overall spendings they have based on past, present, and future bookings.
 
 ## Technologies
   - Javascript
   - VScode
-	- WebPack
-	- API 
-	- Css/Scss
-	- HTML
-	- Wave/Lighthouse 
-	- Mocha
-	- Chai
+  - WebPack
+  - API 
+  - Css/Scss
+  - HTML
+  - Wave/Lighthouse 
+  - Mocha
+  - Chai
 
 
 ## Code Architecture
@@ -32,8 +32,12 @@
 
 ## Illustrations
 
-Login view: Where a user can log in
-<img width="1437" alt="Screen Shot 2022-01-19 at 9 07 34 PM" src="https://user-images.githubusercontent.com/61717746/150271697-180cc18a-7985-45ba-b4fc-3f0d37b7d2bf.png">  
+##Login view: Where a user can log in
+
+<img width="1437" alt="Screen Shot 2022-01-19 at 9 07 34 PM" src="https://user-images.githubusercontent.com/61717746/150271697-180cc18a-7985-45ba-b4fc-3f0d37b7d2bf.png">
+
+
+
 
 
 
