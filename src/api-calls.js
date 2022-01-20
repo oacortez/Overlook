@@ -25,7 +25,6 @@ const fetchData = (api) =>
         } else {
           return response.json()
         }
-        // need to create a function for err handling
       }
     )
   }
