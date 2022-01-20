@@ -19,12 +19,13 @@ class Hotel {
       return roomNum;
     }, []);
     
-    const openRooms = this.rooms.filter(room => roomNumbers.includes(room.number));
+    const openRooms = this.rooms.filter(room => !roomNumbers.includes(room.number));
     this.availableRooms = openRooms;
     return this.availableRooms;
   }
 
   filterByRoomType(tag) {
+    this.roomsByTag = [];
     this.availableRooms.filter(room => {
       if(room.roomType === tag) {
         this.roomsByTag.push(room);
