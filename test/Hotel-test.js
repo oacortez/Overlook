@@ -39,7 +39,7 @@ describe('Hotel', () => {
   });
 
   it('Should filter all available rooms by a given date', () => {
-    expect(hotel.filterRoomByDate('2020/04/22')).to.deep.equal([roomsData[0]]);
+    expect(hotel.filterRoomByDate('2020/04/22').length).to.equal(9);
   });
 
   it('Should start with no rooms with tags', () => {
@@ -48,9 +48,9 @@ describe('Hotel', () => {
 
   it('Should be able to filter available rooms by room type', () => {
     hotel.filterRoomByDate('2020/04/22');
-    hotel.filterByRoomType('residential suite');
+    hotel.filterByRoomType('suite');
     
-    expect(hotel.roomsByTag).to.deep.equal([roomsData[0]]);
+    expect(hotel.roomsByTag.length).to.equal(2);
   });
 
   it('Should have currentCustomer', () => {
