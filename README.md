@@ -29,7 +29,7 @@ This project is a hotel engine site where customers can manage their room bookin
 
 ## Illustrations
 
-### Login view: Where a user can log in
+### Login view: Where a user can login
 
 <img width="1437" alt="Screen Shot 2022-01-19 at 9 07 34 PM" src="https://user-images.githubusercontent.com/61717746/150271697-180cc18a-7985-45ba-b4fc-3f0d37b7d2bf.png">
 
