@@ -28,35 +28,5 @@ const fetchData = (api) =>
       }
     )
   }
-
-  /**
-   const postIngredient = (data) => {
-
-return fetch(`http://localhost:3001/api/v1/users`, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(data),
-})
-  .then(response => {
-    return myErrorHandlingFunc(response)
-  })
-}
-//Insdie script.js👇🏼
-const myErrorHandlingFunc = (res) => {
-    if(!res.ok){
-      throw newError(res.message) 
-    }
-    return response.json()
-}
-.catch(error => ShowError(error))
-    
-const showError = (error) => {
-    // add this error as a text to an html element 
-document.querySelector(".myHtmlElement").innerText += error
-    }
-}
-   */
   
 export {customersData, roomsData, bookingsData, userData, postData}
