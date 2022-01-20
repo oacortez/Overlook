@@ -2,9 +2,12 @@ import hotel from './scripts';
 import {bookRoom} from './scripts';
 
 // let cardBtns; 
-const availableRoomsView = document.querySelector('#availableRoomsView');
 const profileView = document.querySelector('#profileView');
 const welcomeMessage = document.querySelector('#welcomeMessage');
+const errorLoginMessage = document.querySelector('#errorLoginMessage');
+const loginForm = document.querySelector('#loginForm');
+const availableRoomsView = document.querySelector('#availableRoomsView');
+
 
 
 const show = elements => elements.forEach(element => element.classList.remove('hidden'));
@@ -12,9 +15,14 @@ const hide = elements => elements.forEach(element => element.classList.add('hidd
 
 
 const domUpdates = {
-  displayWelcomeMessage(customer, totalSpent, homeView) {
+  displayWelcomeMessage(customer, totalSpent, homeView, profileView) {
     welcomeMessage.innerText = `Welcome ${customer}, Your total amount spent on rooms: $${totalSpent}`;
     show([homeView])
+    hide([loginForm, errorLoginMessage, profileView])
+  },
+
+  displayLoginerror() {
+    show([errorLoginMessage])
   },
 
   displayAllUsersBookings(currentCustomerBookings, image, homeView, profileView, availableRoomsView) {
@@ -51,15 +59,23 @@ const domUpdates = {
     })
     }
     if(availableRooms.length < 1 ) {
-      const availableRoomsView = document.querySelector('#availableRoomsView');
       availableRoomsView.innerHTML = '';
       availableRoomsView.innerHTML += `<p class="card-err-msg">We are so sorry, but we do not have any availablity rooms for that room type on that date. Please make another selection!</p>`
     }
     show([availableRoomsView]);
-    hide([homeView, ])
+    hide([homeView])
   },
+
+  displayBookingMessage(availableRoomsView) {
+    availableRoomsView.innerHTML = '';
+    availableRoomsView.innerHTML += `<p class="card-err-msg">You have successfully booked a room!</p>`
+  },
+
+  displayErrorBookingMessage(availableRoomsView, errMessage) {
+    availableRoomsView.innerHTML = '';
+    availableRoomsView.innerHTML += `<p class="card-err-msg">${errMessage}</p>`
+  }
 }
 
+
 export default domUpdates;
-// Still need a section for my cards to display 
-// Inside those cards I also need a plus icon when cards

@@ -10,13 +10,16 @@ const availableRoomsView = document.querySelector('#availableRoomsView');
 const title = document.querySelector('#title');
 const roomTypeTags = document.querySelector('#filterRoom');
 const calendar = document.querySelector('#dateCalander');
+const userNameInput = document.querySelector('#userNameInput');
+const passwordInput = document.querySelector('#passwordInput');
 
 
 // Buttons || icons:
-const homeBtn = document.querySelector('.home-btn');
 const myProfileBtn = document.getElementById('myProfileBtn');
-const signOutBtn = document.getElementById('signOutBtn');
 const submitRequestBtn = document.querySelector('#submitRequestBtn');
+const loginBtn = document.querySelector('#loginButton');
+const homeBtn = document.querySelector('#homeBtn');
+
 
 let hotel; 
 let calendarDate;
@@ -28,11 +31,9 @@ const getAllData = (userID) => {
     hotel.getAllUserBookings(data[3])
     hotel.getTotalPrice()
     loadCustomerInfo()
-    // console.log(hotel.currentCustomer.bookings);
   })
 }
 
-// Event Listeners:
 
 
 
@@ -47,6 +48,10 @@ const bookRoom = event => {
   postData(data)
     .then(data => {
       getAllData(hotel.currentCustomer.id)
+      domUpdates.displayBookingMessage(availableRoomsView);
+    })
+    .catch(err => {
+      domUpdates.displayErrorBookingMessage(availableRoomsView, err.message);
     })
 }
 
@@ -61,7 +66,7 @@ const createBtns = () => {
 }
 
 const loadCustomerInfo = () => {
-  domUpdates.displayWelcomeMessage(hotel.currentCustomer.name, hotel.currentCustomer.totalSpent, homeView);
+  domUpdates.displayWelcomeMessage(hotel.currentCustomer.name, hotel.currentCustomer.totalSpent, homeView, profileView);
 }
 
 const loadProfileBookings = () => {
@@ -76,11 +81,25 @@ const filterRooms = () => {
   createBtns();
 }
 
-window.addEventListener('load', () => {
-  getAllData(1)
-});
+const findUserId = () => {
+  return parseInt(userNameInput.value.substring(8));
+}
+
+const findUserPassword = (event) => {
+  event.preventDefault()
+  if(passwordInput.value === "overlook2021" && findUserId() < 51) {
+    getAllData(findUserId());
+  } else {
+    domUpdates.displayLoginerror();
+  }
+}
+
+// Event Listeners:
+
+loginBtn.addEventListener('click', findUserPassword);
 myProfileBtn.addEventListener('click', loadProfileBookings);
 submitRequestBtn.addEventListener('click', filterRooms);
+homeBtn.addEventListener('click', loadCustomerInfo);
 
 
 export default hotel;
