@@ -4,11 +4,9 @@
 ## Table of Contents
   - [Abstract](#abstract)
   - [Technologies](#technologies)
-  - [Code Architecture](#code-architecture)
   - [Illustrations](#illustrations)
   - [Install + Setup](#set-up)
   - [Contributors](#contributors)
-	- [Wins](#wins)
 	- [Challenges + Improvements](#challenges-+-Improvements)
   - [Project Specs](#project-specs)
 
@@ -27,18 +25,25 @@ This project is a hotel engine site where customers can manage their room bookin
   - Chai
 
 
-## Code Architecture
 
 
 ## Illustrations
 
-## Login view: Where a user can log in
+### Login view: Where a user can log in
 
 <img width="1437" alt="Screen Shot 2022-01-19 at 9 07 34 PM" src="https://user-images.githubusercontent.com/61717746/150271697-180cc18a-7985-45ba-b4fc-3f0d37b7d2bf.png">
 
+### User View: Once user is able to login they will get a greeting with a display their total amount spent
 
+<img width="1434" alt="Screen Shot 2022-01-19 at 9 16 00 PM" src="https://user-images.githubusercontent.com/61717746/150272407-efa78c07-86e6-49fb-a59c-af055194f20d.png">
 
+### Filter view: Users are able to look for available rooms based on date and room type after clicking submit they will get displayed room cards that are available based on their selected inputs
 
+<img width="1434" alt="Screen Shot 2022-01-19 at 9 20 48 PM" src="https://user-images.githubusercontent.com/61717746/150272826-ee977a44-4232-4645-b12f-c884ea3874d3.png">
+
+### My profile view: Users are able to click on "My profile" button which will display the user a section of all past, present, and future bookings the user has
+
+<img width="1438" alt="Screen Shot 2022-01-19 at 9 23 22 PM" src="https://user-images.githubusercontent.com/61717746/150273067-a241a498-c8ba-4891-b119-2b6b610172bb.png">
 
 
 ## Install + Setup
